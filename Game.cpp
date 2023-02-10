@@ -28,12 +28,6 @@ void Game::CreateWindow(const char *window_title, int window_width, int window_h
 	std::cout << this << ": Successfully created window and renderer" << std::endl;
 }
 
-void Game::UpdateGraphics()
-{
-	SDL_RenderClear(_renderer);
-	SDL_RenderPresent(_renderer);
-}
-
 void Game::DestroyWindow()
 {
 	SDL_DestroyWindow(_window);

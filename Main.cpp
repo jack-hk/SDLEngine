@@ -16,7 +16,7 @@ int main(int argc, char* args[])
 		gameInts.Init();
 		gameInts.CreateWindow("Example", 800, 800, Vector4D(0, 0, 0, 255));
 		gameInts._isRunning = true;
-		while (SDL_PollEvent(&sdlEvent))
+		while (SDL_PollEvent(&sdlEvent) && gameInts._isRunning)
 		{
 			switch (sdlEvent.type)
 			{
@@ -35,8 +35,7 @@ int main(int argc, char* args[])
 				break;
 			}
 		}
-		getchar();
-		
+
 		gameInts.DestroyWindow();
 		gameInts.Quit();
 	}
