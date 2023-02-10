@@ -1,0 +1,50 @@
+//	SDL_Texture* battex = Graphics::LoadTexture("Assets/bat.png");
+//	GameObject go2(tex, Vector2D(0, 0), 128, 128);
+//					act.Move(Vector2D(0, -500));
+/*
+go2.Update();
+act.Update(deltaTime, false, false);
+
+act.timeInAnimationState = SDL_GetTicks() / 1000.0f;
+
+//Render
+SDL_RenderClear(Graphics::renderer);
+
+go2.Draw(Graphics::renderer);
+act.Draw(Graphics::renderer);*/
+//	go2.Clean();
+
+//resources
+
+https://opengameart.org/content/survivor-2d-pixel-art
+
+https://opengameart.org/content/fps-military-tactical-gui-icon-pack
+
+https://opengameart.org/content/2d-side-scrolling-tank
+
+https://opengameart.org/content/attack-helicopter
+
+
+https://thenumb.at/cpp-course/
+
+good example
+//https://github.com/alexdantas/sdl2-platformer
+
+working demo
+//https://github.com/ssloy/sdl2-demo
+
+style guide
+//https://google.github.io/styleguide/cppguide.html
+
+//GAMEOBJECT LIST
+
+	SDL_Texture* placeholder1 = window.loadTexture("Assets/placeholder1.png");
+	SDL_Texture* placeholder2 = window.loadTexture("Assets/placeholder2.png");
+
+	std::vector<gameobject> entitiees = { gameobject(Vector2f(0, 0), placeholder1),
+									 gameobject(Vector2f(30, 0), placeholder1),
+									 gameobject(Vector2f(30, 30), placeholder1),
+									 gameobject(Vector2f(30, 60), placeholder1) };
+
+
+									 

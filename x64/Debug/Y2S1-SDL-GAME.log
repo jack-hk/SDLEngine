@@ -1,0 +1,6 @@
+﻿  Game.cpp
+C:\Users\jackh\Projects\SDL-copy\Game.cpp(27,96): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\jackh\Projects\SDL-copy\Game.cpp(27,80): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\jackh\Projects\SDL-copy\Game.cpp(27,64): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\jackh\Projects\SDL-copy\Game.cpp(27,48): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+  Y2S1-SDL-GAME.vcxproj -> C:\Users\jackh\Projects\SDL-copy\x64\Debug\Y2S1-SDL-GAME.exe
