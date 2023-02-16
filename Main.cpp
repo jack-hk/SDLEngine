@@ -8,32 +8,34 @@
 int main(int argc, char* args[])
 {
 	Game _game{};
-	SDL_Event sdlEvent;
+	SDL_Event _sdlEvent;
 	std::vector<Game> _gameInstances = { _game };
 
 	for (auto gameInts : _gameInstances)
 	{
 		gameInts.Init();
-		gameInts.CreateWindow("Example", 800, 800, Vector4D(0, 0, 0, 255));
+		gameInts.CreateWindow("Example", 800, 800, Vector4D(0, 70, 70, 255));
 		gameInts._isRunning = true;
-		while (SDL_PollEvent(&sdlEvent) && gameInts._isRunning)
+		while (gameInts._isRunning)
 		{
-			switch (sdlEvent.type)
+			while (SDL_PollEvent(&_sdlEvent))
 			{
-			case SDL_QUIT:
-				gameInts._isRunning = false;
-				break;
-			case SDL_KEYDOWN:
-				switch (sdlEvent.key.keysym.sym)
+				switch (_sdlEvent.type)
 				{
-				case SDLK_ESCAPE:
+				case SDL_QUIT:
 					gameInts._isRunning = false;
 					break;
+				case SDL_KEYDOWN:
+					switch (_sdlEvent.key.keysym.sym)
+					{
+					case SDLK_ESCAPE:
+						gameInts._isRunning = false;
+						break;
+					}
+					break;
 				}
-				break;
-			default:
-				break;
 			}
+			gameInts._graphics.UpdateGraphics(gameInts.GetRenderer());
 		}
 
 		gameInts.DestroyWindow();

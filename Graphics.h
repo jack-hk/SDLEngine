@@ -8,5 +8,6 @@ class Graphics
 {
 public:
 	void UpdateGraphics(SDL_Renderer* renderer);
+	SDL_Texture* LoadTexture(SDL_Renderer* renderer, const char* filename);
 };
 
