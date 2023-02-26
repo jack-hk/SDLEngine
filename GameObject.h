@@ -5,14 +5,20 @@
 #include <iostream>
 
 #include "VectorMath.h"
+#include "RectCollider.h"
+#include "PhysicsBody.h"
+#include "Sprite.h"
 
 class GameObject
 {
-	SDL_Texture* _texture = nullptr;
 	Vector2D _position = Vector2D(0, 0);
 	int _width = 32;
 	int _height = 32;
 
-	GameObject(Vector2D go_position, int go_width, int go_height, SDL_Texture* go_texture);
+	Sprite* _sprite = nullptr;
+	RectCollider* _collider = nullptr;
+	PhysicsBody* _physics = nullptr;
+
+	GameObject(Vector2D go_position, int go_width, int go_height);
 };
 

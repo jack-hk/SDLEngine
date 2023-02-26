@@ -10,7 +10,7 @@ int main(int argc, char* args[])
 	SDL_Event _sdlEvent;
 
 		Game::Init();
-		Game::CreateWindow("Example", 800, 800, Vector4D(0, 70, 70, 255));
+		Game::CreateWindow("Example", 800, 800, Vector4D(0, 70, 70, SDL_ALPHA_OPAQUE));
 		Game::_isRunning = true;
 		while (Game::_isRunning)
 		{

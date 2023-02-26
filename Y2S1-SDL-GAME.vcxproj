@@ -23,6 +23,9 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PhysicsBody.cpp" />
+    <ClCompile Include="RectCollider.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="VectorMath.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -32,6 +35,9 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="PhysicsBody.h" />
+    <ClInclude Include="RectCollider.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="VectorMath.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
