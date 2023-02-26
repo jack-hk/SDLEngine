@@ -11,18 +11,14 @@
 class Game
 {
 public:
-	bool _isRunning;
-	Graphics _graphics;
+	static inline SDL_Window* _window;
+	static inline SDL_Renderer* _renderer;
+	static inline Graphics _graphics;
+	static inline bool _isRunning;
 
-	void Init();
-	void CreateWindow(const char *window_title, int window_width, int window_height, Vector4D window_color);
-	void DestroyWindow();
-	void Quit();
-	SDL_Window* GetWindow();
-	SDL_Renderer* GetRenderer();
-private:
-	SDL_Window* _window;
-	SDL_Renderer* _renderer;
-
+	static void Init();
+	static void CreateWindow(const char *window_title, int window_width, int window_height, Vector4D window_color);
+	static void DestroyWindow();
+	static void Quit();
 };
 

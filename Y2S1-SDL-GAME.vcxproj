@@ -127,6 +127,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)SDL2_ttf-2.20.1\include;$(ProjectDir)SDL2_mixer-2.6.2\include;$(ProjectDir)SDL2-2.24.1\include;$(ProjectDir)SDL2_image-2.6.2\include;%(AdditionalLibraryDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
