@@ -3,6 +3,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <iostream>
+#include <vector>
 
 #include "VectorMath.h"
 #include "RectCollider.h"
@@ -14,6 +15,7 @@ class GameObject
 	Vector2D _position = Vector2D(0, 0);
 	int _width = 32;
 	int _height = 32;
+	std::vector<Component*> _components;
 
 	Sprite* _sprite = nullptr;
 	RectCollider* _collider = nullptr;

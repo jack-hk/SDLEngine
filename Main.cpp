@@ -1,8 +1,3 @@
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-#include <vector>
-
 #include "Game.h"
 
 int main(int argc, char* args[])
@@ -10,9 +5,9 @@ int main(int argc, char* args[])
 	SDL_Event _sdlEvent;
 
 		Game::Init();
-		Game::CreateWindow("Example", 800, 800, Vector4D(0, 70, 70, SDL_ALPHA_OPAQUE));
+		Graphics::CreateWindow("Example", 800, 800, Vector4D(0, 70, 70, SDL_ALPHA_OPAQUE));
 		Game::_isRunning = true;
-		while (Game::_isRunning)
+		while (Game::_isRunning) //put in game.h
 		{
 			while (SDL_PollEvent(&_sdlEvent))
 			{
@@ -31,9 +26,9 @@ int main(int argc, char* args[])
 					break;
 				}
 			}
-			Game::_graphics.UpdateGraphics(Game::_renderer);
+			Graphics::UpdateGraphics(Graphics::_renderer);
 		}
-		Game::DestroyWindow();
+		Graphics::DestroyWindow();
 		Game::Quit();
 		
 	return 0;

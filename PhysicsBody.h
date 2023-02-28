@@ -1,5 +1,8 @@
 #pragma once
-class PhysicsBody
+#include "Component.h"
+
+class PhysicsBody : Component
 {
+
 };
 

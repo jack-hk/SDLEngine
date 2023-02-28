@@ -1,11 +1,13 @@
 #pragma once
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-#include <iostream>
+#include "Component.h"
 
-class Sprite
+class Sprite : Component
 {
 	SDL_Texture* _texture = nullptr;
+
+	void Update() override
+	{
+		//
+	}
 };
 
