@@ -12,6 +12,7 @@
 
 class GameObject
 {
+public: //make private l8r
 	Vector2D _position = Vector2D(0, 0);
 	int _width = 32;
 	int _height = 32;
@@ -22,5 +23,8 @@ class GameObject
 	PhysicsBody* _physics = nullptr;
 
 	GameObject(Vector2D go_position, int go_width, int go_height);
+
+	void AddComponent(Component* componentToAdd);
+	void UpdateComponents();
 };
 

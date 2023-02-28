@@ -8,3 +8,15 @@ GameObject::GameObject(Vector2D go_position, int go_width, int go_height)
 	_height = go_height;
 }
 
+void GameObject::AddComponent(Component* componentToAdd)
+{
+    _components.push_back(componentToAdd);
+}
+
+void GameObject::UpdateComponents()
+{
+	for (auto component : _components) {
+		std::cout << component << std::endl;
+		component->Update();
+	}
+}

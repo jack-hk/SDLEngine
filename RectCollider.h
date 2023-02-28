@@ -1,7 +1,7 @@
 #pragma once
 #include "Component.h"
 
-class RectCollider : Component
+class RectCollider : public Component
 {
 	
 };
