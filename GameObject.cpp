@@ -8,6 +8,13 @@ GameObject::GameObject(Vector2D go_position, int go_width, int go_height)
 	_height = go_height;
 }
 
+GameObject::~GameObject()
+{
+	for (auto component : _components) {
+		delete component;
+	}
+}
+
 void GameObject::AddComponent(Component* componentToAdd)
 {
     _components.push_back(componentToAdd);

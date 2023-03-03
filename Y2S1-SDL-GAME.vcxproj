@@ -23,6 +23,8 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PhysicsBody.cpp" />
     <ClCompile Include="RectCollider.cpp" />
@@ -37,6 +39,8 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Input.h" />
+    <ClInclude Include="Level.h" />
     <ClInclude Include="PhysicsBody.h" />
     <ClInclude Include="RectCollider.h" />
     <ClInclude Include="Sprite.h" />

@@ -10,19 +10,18 @@
 #include "PhysicsBody.h"
 #include "Sprite.h"
 
-class GameObject
+//Serves as a frame for components.
+struct GameObject
 {
-public: //make private l8r
 	Vector2D _position = Vector2D(0, 0);
 	int _width = 32;
 	int _height = 32;
 	std::vector<Component*> _components;
 
-	Sprite* _sprite = nullptr;
-	RectCollider* _collider = nullptr;
-	PhysicsBody* _physics = nullptr;
-
 	GameObject(Vector2D go_position, int go_width, int go_height);
+
+	//Destroys attached components.
+	~GameObject();
 
 	void AddComponent(Component* componentToAdd);
 	void UpdateComponents();
