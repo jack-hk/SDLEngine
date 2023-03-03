@@ -5,8 +5,8 @@
 int main(int argc, char* args[])
 {
 	Game::Init();
-	Graphics::CreateWindow("Example", 800, 800, Vector4D(0, 70, 70, SDL_ALPHA_OPAQUE));
 	Input::Init();
+	Graphics::CreateWindow("Example", 800, 800, Vector4D(0, 70, 70, SDL_ALPHA_OPAQUE));
 	Game::_isRunning = true;
 
 	//debug
