@@ -8,8 +8,5 @@ struct Component
 {
 	bool _isEnabled = true;
 
-	virtual void Update() = 0;
+	virtual void Update() = 0; //abstract 
 };
-
-
-

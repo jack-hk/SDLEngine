@@ -7,5 +7,5 @@ RectCollider::RectCollider()
 
 void RectCollider::Update() 
 {
-	
+
 }

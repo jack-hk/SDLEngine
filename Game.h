@@ -17,4 +17,3 @@ public:
 	static void Run();
 	static void Quit();
 };
-

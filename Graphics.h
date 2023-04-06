@@ -15,7 +15,7 @@ public:
 
 	static void CreateWindow(const char* window_title, int window_width, int window_height, Vector4D window_color);
 	static void DestroyWindow();
-	static void UpdateGraphics(SDL_Renderer* renderer);
-	SDL_Texture* LoadTexture(SDL_Renderer* renderer, const char* filename);
+	static void UpdateGraphics();
+	static SDL_Texture* LoadTexture(const char* filename);
+	static void DrawImage(SDL_Texture* texture, SDL_Rect srcRect, SDL_Rect dstRect);
 };
-
