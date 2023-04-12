@@ -21,6 +21,7 @@ public:
 	~GameObject();
 
 	Vector2D GetPosition();
+	int GetSize();
 
 	Component* GetComponent(std::string name);
 	void AddComponent(Component* componentToAdd);
@@ -28,6 +29,7 @@ public:
 
 private:
 	Vector2D _position = Vector2D(0, 0);
+	int _size = 32;
 
 	std::vector<Component*> _components;
 };

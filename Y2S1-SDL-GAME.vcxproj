@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SDLCommon.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -35,6 +36,7 @@
     <None Include="readme.text" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SDLCommon.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -138,7 +140,7 @@
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)SDL2_ttf-2.20.1\include;$(ProjectDir)SDL2_mixer-2.6.2\include;$(ProjectDir)SDL2-2.24.1\include;$(ProjectDir)SDL2_image-2.6.2\include;%(AdditionalLibraryDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>

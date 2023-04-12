@@ -15,6 +15,8 @@ GameObject::~GameObject()
 
 Vector2D GameObject::GetPosition() { return _position; }
 
+int GameObject::GetSize() { return _size; }
+
 Component* GameObject::GetComponent(std::string name)
 {
 	//compares type, returns component with the matching name.

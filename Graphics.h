@@ -18,5 +18,4 @@ public:
 	static void DestroyWindow();
 	static void UpdateGraphics();
 	static SDL_Texture* LoadTexture(const char* filename);
-	static void DrawImage(SDL_Texture* texture, Box dstRect);
 };

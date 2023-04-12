@@ -50,20 +50,3 @@ SDL_Texture* Graphics::LoadTexture(const char* filename)
 	return texture;
 }
 
-void Graphics::DrawImage(SDL_Texture* texture, Box dstRect)
-{
-	/*if (HasAnimation)
-	{
-		int currentFrameIndex = (int)(timeInAnimationState * animationSpeed) % animFrames;
-		srcRect = { currentFrameIndex * animWidth, animState * animHeight, animWidth, animHeight };
-	}*/
-
-	//convert Box to SDL_Rect
-	SDL_Rect SDLdstRect;
-	SDLdstRect.x = dstRect.x;
-	SDLdstRect.y = dstRect.y;
-	SDLdstRect.w = dstRect.w;
-	SDLdstRect.h = dstRect.h;
-
-	SDL_RenderCopy(_renderer, texture, NULL, &SDLdstRect);
-}
