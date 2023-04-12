@@ -43,6 +43,7 @@
     <ClInclude Include="Level.h" />
     <ClInclude Include="PhysicsBody.h" />
     <ClInclude Include="RectCollider.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="VectorMath.h" />
   </ItemGroup>

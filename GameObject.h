@@ -6,25 +6,28 @@
 #include <vector>
 
 #include "VectorMath.h"
+#include "Shape.h"
 #include "RectCollider.h"
 #include "PhysicsBody.h"
 #include "Sprite.h"
 
 //Serves as a frame for components.
-struct GameObject
+class GameObject
 {
-	Vector2D _position = Vector2D(0, 0);
-	int _width = 32;
-	int _height = 32;
-	SDL_Rect srcRect;
-	SDL_Rect dstRect{(int)_position.x, (int)_position.y, _width, _height};
-	std::vector<Component*> _components;
-
-	GameObject(Vector2D go_position, int go_width, int go_height);
+public:
+	GameObject(Vector2D go_position);
 
 	//Destroys attached components.
 	~GameObject();
 
+	Vector2D GetPosition();
+
+	Component* GetComponent(std::string name);
 	void AddComponent(Component* componentToAdd);
 	void UpdateComponents();
+
+private:
+	Vector2D _position = Vector2D(0, 0);
+
+	std::vector<Component*> _components;
 };

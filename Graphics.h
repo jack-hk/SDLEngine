@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "VectorMath.h"
+#include "Shape.h"
 
 //Deals with visual updates
 class Graphics
@@ -17,5 +18,5 @@ public:
 	static void DestroyWindow();
 	static void UpdateGraphics();
 	static SDL_Texture* LoadTexture(const char* filename);
-	static void DrawImage(SDL_Texture* texture, SDL_Rect srcRect, SDL_Rect dstRect);
+	static void DrawImage(SDL_Texture* texture, Box dstRect);
 };

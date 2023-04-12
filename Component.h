@@ -1,12 +1,16 @@
 #pragma once
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
 #include <iostream>
 
-struct Component
+class GameObject;
+class Component
 {
-	bool _isEnabled = true;
+public:
+	GameObject* _gameObject;
+
+	Component(GameObject* gameObject);
 
 	virtual void Update() = 0; //abstract 
+
+private:
+	bool _isEnabled = true;
 };

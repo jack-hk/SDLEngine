@@ -13,13 +13,6 @@ void Game::Run()
 {
 	SDL_Event _sdlEvent;
 
-	//debug
-	SDL_Texture* tex = Graphics::LoadTexture("Assets/placeholder1.png");
-	GameObject GO(Vector2D(0, 0), 128, 128);
-	RectCollider* collider = new RectCollider();
-	GO.AddComponent(collider);
-	//
-
 	while (Game::_isRunning) 
 	{
 		Input::Update();
@@ -43,7 +36,7 @@ void Game::Run()
 
 		//Graphics::UpdateGraphics();
 		SDL_RenderClear(Graphics::_renderer);
-		Graphics::DrawImage(tex, GO.srcRect, GO.dstRect);
+
 		SDL_RenderPresent(Graphics::_renderer);
 	}
 }

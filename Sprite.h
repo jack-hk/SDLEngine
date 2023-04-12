@@ -1,8 +1,14 @@
 #pragma once
 #include "Component.h"
+#include "Shape.h"
+#include "VectorMath.h"
 
 class Sprite : public Component
 {
+public:
+	Sprite(GameObject* gameobject);
+	void Update() override;
+
 private:
-	SDL_Texture* _texture = nullptr;
+	bool _isAnimated = false;
 };
