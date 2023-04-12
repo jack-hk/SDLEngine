@@ -1,5 +1,11 @@
 ﻿  Game.cpp
+  Graphics.cpp
+C:\Users\5hughj54\Documents\GitHub\SDLEngine\Graphics.cpp(19,96): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\5hughj54\Documents\GitHub\SDLEngine\Graphics.cpp(19,80): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\5hughj54\Documents\GitHub\SDLEngine\Graphics.cpp(19,64): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\5hughj54\Documents\GitHub\SDLEngine\Graphics.cpp(19,48): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
   Level.cpp
+  Sprite.cpp
   main.cpp
   Generating Code...
   Y2S1-SDL-GAME.vcxproj -> C:\Users\5hughj54\Documents\GitHub\SDLEngine\x64\Debug\Y2S1-SDL-GAME.exe

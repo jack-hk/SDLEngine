@@ -20,9 +20,9 @@ int GameObject::GetSize() { return _size; }
 Component* GameObject::GetComponent(std::string name)
 {
 	//compares type, returns component with the matching name.
-	for (size_t i = 0; i < _components.size(); i++)
+	for (auto component : _components)
 	{
-		if ("class " + name == typeid(*_components[i]).name()) return _components[i];
+		if ("class " + name == typeid(*component).name()) return component;
 	}
 	return nullptr;
 }
