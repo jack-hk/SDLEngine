@@ -1,2 +1,5 @@
-﻿  main.cpp
+﻿  Game.cpp
+  Level.cpp
+  main.cpp
+  Generating Code...
   Y2S1-SDL-GAME.vcxproj -> C:\Users\5hughj54\Documents\GitHub\SDLEngine\x64\Debug\Y2S1-SDL-GAME.exe

@@ -1,4 +1,5 @@
 #include "Game.h"
+#include "Level.h"
 
 void Game::Init()
 {
@@ -13,4 +14,11 @@ void Game::Quit()
 {
 	SDL_Quit();
 	std::cout << "SDL" << ": Cleaned up SDL subsystems" << std::endl;
+}
+
+void Game::UpdateLevels()
+{
+	for (auto level : _levels) {
+		level->Update();
+	}
 }

@@ -2,10 +2,11 @@
 #include <vector>
 
 #include "Graphics.h"
-#include "Level.h"
+//#include "Level.h"
 #include "Input.h"
 
 //Deals with gameloop and common game functions
+class Level;
 class Game
 {
 public:
@@ -16,4 +17,6 @@ public:
 	static void Init();
 	static void Run();
 	static void Quit();
+
+	static void UpdateLevels();
 };

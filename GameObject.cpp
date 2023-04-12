@@ -35,7 +35,6 @@ void GameObject::AddComponent(Component* componentToAdd)
 void GameObject::UpdateComponents()
 {
 	for (auto component : _components) {
-		std::cout << component << std::endl;
 		component->Update();
 	}
 }
