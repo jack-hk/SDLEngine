@@ -22,10 +22,19 @@ public:
 
 	Vector2D GetPosition();
 	int GetSize();
-
-	Component* GetComponent(std::string name);
 	void AddComponent(Component* componentToAdd);
 	void UpdateComponents();
+
+	template <typename T> T* GetComponent()
+	{
+		for (auto component : _components)
+		{
+			T* com = dynamic_cast<T*>(component);
+			if (com != nullptr)
+				return com;
+		}
+		return nullptr;
+	}
 
 private:
 	Vector2D _position = Vector2D(0, 0);

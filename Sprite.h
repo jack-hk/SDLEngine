@@ -7,6 +7,7 @@
 #include "Component.h"
 #include "Shape.h"
 #include "VectorMath.h"
+#include "GameObject.h"
 
 class Sprite : public Component
 {

@@ -5,7 +5,6 @@
 
 Sprite::Sprite(GameObject* gameObject, SDL_Texture* texture) : Component(gameObject)
 {
-	if (!_isRendered) return;
 	_body = Box {
 			(int)_gameObject->GetPosition().x + (int)_textureOffset.x,
 			(int)_gameObject->GetPosition().y + (int)_textureOffset.y,
@@ -17,7 +16,6 @@ Sprite::Sprite(GameObject* gameObject, SDL_Texture* texture) : Component(gameObj
 
 Sprite::Sprite(GameObject* gameObject, SDL_Texture* texture, Vector2D newSize) : Component(gameObject)
 {
-	if (!_isRendered) return;
 	_body = Box {
 			(int)_gameObject->GetPosition().x + (int)_textureOffset.x,
 			(int)_gameObject->GetPosition().y + (int)_textureOffset.y,
@@ -43,6 +41,6 @@ void Sprite::Draw(Box dstRect, SDL_Texture* texture)
 		int currentFrameIndex = (int)(timeInAnimationState * animationSpeed) % animFrames;
 		srcRect = { currentFrameIndex * animWidth, animState * animHeight, animWidth, animHeight };
 	}*/
-
+	if (!_isRendered) return;
 	SDL_RenderCopy(Graphics::_renderer, _texture, NULL, &SDLCommon::ConvertToSDLRect(dstRect));
 }
