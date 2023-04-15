@@ -1,13 +1,11 @@
 #pragma once
 
-//shame... wish these dependenices didn't exist
-#include <SDL.h>
-#include <SDL_image.h>
-
 #include "Component.h"
 #include "Shape.h"
 #include "VectorMath.h"
+#include "Graphics.h"
 #include "GameObject.h"
+#include "SDLCommon.h"
 
 class Sprite : public Component
 {
@@ -20,7 +18,10 @@ public:
 	inline void SetRendered(bool isRendered) { _isRendered = isRendered; }
 private:
 	SDL_Texture* _texture = nullptr;
-	Box _body;
+	Box _body = Box(0, 0, 0, 0);
+
+	Vector2D _spriteSize = Vector2D(0, 0);
+	Vector2D _spriteOffset = Vector2D(0, 0);
 
 	bool _isRendered = true;
 	bool _isAnimated = false;

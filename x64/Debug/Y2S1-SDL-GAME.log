@@ -1,5 +1,4 @@
-﻿  main.cpp
-  RectCollider.cpp
-  Sprite.cpp
-  Generating Code...
+﻿  Sprite.cpp
+C:\Users\jackh\Projects\Unity\SDLEngine\Sprite.cpp(12,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\jackh\Projects\Unity\SDLEngine\Sprite.cpp(13,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Y2S1-SDL-GAME.vcxproj -> C:\Users\jackh\Projects\Unity\SDLEngine\x64\Debug\Y2S1-SDL-GAME.exe

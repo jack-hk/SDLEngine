@@ -20,6 +20,8 @@ Vector2D GameObject::GetPosition() { return _position; }
 
 int GameObject::GetSize() { return _size; }
 
+void GameObject::Transform(Vector2D newPosition) { _position = newPosition; }
+
 void GameObject::AddComponent(Component* componentToAdd)
 {
 	_components.push_back(componentToAdd);

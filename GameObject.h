@@ -22,6 +22,8 @@ public:
 
 	Vector2D GetPosition();
 	int GetSize();
+	void Transform(Vector2D newPosition);
+	
 	void AddComponent(Component* componentToAdd);
 	void UpdateComponents();
 

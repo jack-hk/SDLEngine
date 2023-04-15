@@ -34,10 +34,17 @@ void Game::Run()
 	// adding component example
 	SDL_Texture* placeholder = Graphics::LoadTexture("Assets/placeholder1.png");
 	GameObject go1(Vector2D(0, 0), 64);
-	go1.AddComponent(new Sprite(&go1, placeholder, Vector2D(32,32)));
-	go1.AddComponent(new RectCollider(&go1, Vector2D(0,0), true));
+	go1.AddComponent(new Sprite(&go1, placeholder));
+	go1.AddComponent(new RectCollider(&go1));
+	go1.GetComponent<RectCollider>()->SetRenderedBounds(true);
+
+	GameObject go2(Vector2D(55, 0), 64);
+	go2.AddComponent(new Sprite(&go2, placeholder));
+	go2.AddComponent(new RectCollider(&go2));
+	go2.GetComponent<RectCollider>()->SetRenderedBounds(true);
 	Level level;
 	level.AddGameObject(&go1);
+	level.AddGameObject(&go2);
 	//
 
 	while (Game::_isRunning)
@@ -55,11 +62,16 @@ void Game::Run()
 
 		if (!_isRunning) break;
 
-		if (Input::GetKeyDown(SDL_SCANCODE_W)) std::cout << "W was pressed" << std::endl;
-		if (Input::GetKeyUp(SDL_SCANCODE_S)) std::cout << "S was released" << std::endl;
-
-		if (Input::GetKey(SDL_SCANCODE_A)) std::cout << "A is held" << std::endl;
-		if (Input::GetKey(SDL_SCANCODE_D)) std::cout << "D is held" << std::endl;
+		if (Input::GetKey(SDL_SCANCODE_A))
+		{
+			go2.Transform(go2.GetPosition() + (Vector2D(-1, 0)));
+			std::cout << go2.GetPosition().x << std::endl;
+		}
+		if (Input::GetKey(SDL_SCANCODE_D))
+		{
+			go2.Transform(go2.GetPosition() + (Vector2D(1, 0)));
+			std::cout << go2.GetPosition().x << std::endl;
+		}
 
 		//Graphics::UpdateGraphics();
 		SDL_RenderClear(Graphics::_renderer);

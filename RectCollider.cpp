@@ -1,7 +1,6 @@
 #include "RectCollider.h"
-#include "GameObject.h"
 
-RectCollider::RectCollider(GameObject* gameObject, Vector2D offset, bool isRenderedBounds, Vector4D renderedBoundsColor) : Component(gameObject)
+RectCollider::RectCollider(GameObject* gameObject, Vector2D offset) : Component(gameObject)
 {
 	_body = Box{
 		(int)_gameObject->GetPosition().x + (int)offset.x,
@@ -9,11 +8,12 @@ RectCollider::RectCollider(GameObject* gameObject, Vector2D offset, bool isRende
 		(int)_gameObject->GetSize(),
 		(int)_gameObject->GetSize()
 	};
-	_isRenderedBounds = isRenderedBounds;
-	_renderedBoundsColor = renderedBoundsColor;
+	_colliderSize.x = _body.w;
+	_colliderSize.y = _body.h;
+	_colliderOffset = offset;
 }
 
-RectCollider::RectCollider(GameObject* gameObject, Vector2D newSize, Vector2D offset, bool isRenderedBounds, Vector4D renderedBoundsColor) : Component(gameObject)
+RectCollider::RectCollider(GameObject* gameObject, Vector2D newSize, Vector2D offset) : Component(gameObject)
 {
 	_body = Box{
 		(int)_gameObject->GetPosition().x + (int)offset.x,
@@ -21,11 +21,23 @@ RectCollider::RectCollider(GameObject* gameObject, Vector2D newSize, Vector2D of
 		(int)newSize.x,
 		(int)newSize.y
 	};
-	_isRenderedBounds = isRenderedBounds;
-	_renderedBoundsColor = renderedBoundsColor;
+	_colliderSize = newSize;
+	_colliderOffset = offset;
 }
 
 void RectCollider::Update() 
 {
+	_body = Box{
+	(int)_gameObject->GetPosition().x + (int)_colliderOffset.x,
+	(int)_gameObject->GetPosition().y + (int)_colliderOffset.y,
+	(int)_colliderSize.x,
+	(int)_colliderSize.y
+	};
 	if (_isRenderedBounds) Graphics::DrawBox(_body, _renderedBoundsColor);
+}
+
+void RectCollider::SetRenderedBounds(bool isRenderedBounds, Vector4D renderedBoundsColor)
+{
+	_isRenderedBounds = isRenderedBounds;
+	_renderedBoundsColor = renderedBoundsColor;
 }
