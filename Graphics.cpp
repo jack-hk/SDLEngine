@@ -1,9 +1,12 @@
 #include "Graphics.h"
+#include "SDLCommon.h"
 
 //add a guard that prevents multiple instances of the Window. (there should only be one!)
 
 void Graphics::CreateWindow(const char* window_title, int window_width, int window_height, Vector4D window_color)
 {
+	_windowColor = window_color;
+	
 	_window = SDL_CreateWindow(window_title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, window_width, window_height, SDL_WINDOW_SHOWN);
 	if (_window == nullptr)
 	{
@@ -50,3 +53,14 @@ SDL_Texture* Graphics::LoadTexture(const char* filename)
 	return texture;
 }
 
+void Graphics::DrawTexture(Box dstRect, SDL_Texture* texture)
+{
+	SDL_RenderCopy(Graphics::_renderer, texture, NULL, &SDLCommon::ConvertToSDLRect(dstRect));
+}
+
+void Graphics::DrawBox(Box dstRect, Vector4D color)
+{
+	SDL_SetRenderDrawColor(Graphics::_renderer, color.h, color.i, color.j, color.k);
+	SDL_RenderDrawRect(Graphics::_renderer, &SDLCommon::ConvertToSDLRect(dstRect));
+	SDL_SetRenderDrawColor(Graphics::_renderer, Graphics::_windowColor.h, Graphics::_windowColor.i, Graphics::_windowColor.j, Graphics::_windowColor.k);
+}

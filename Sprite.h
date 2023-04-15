@@ -16,9 +16,8 @@ public:
 	Sprite(GameObject* gameObject, SDL_Texture* texture, Vector2D newSize);
 
 	void Update() override;
-	void Draw(Box dstRect, SDL_Texture* texture);
 
-	void SetRendered(bool isRendered);
+	inline void SetRendered(bool isRendered) { _isRendered = isRendered; }
 private:
 	SDL_Texture* _texture = nullptr;
 	Box _body;

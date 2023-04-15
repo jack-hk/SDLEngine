@@ -25,22 +25,9 @@ Sprite::Sprite(GameObject* gameObject, SDL_Texture* texture, Vector2D newSize) :
 	_texture = texture;
 }
 
-//change to inline
-void Sprite::SetRendered(bool isRendered) { _isRendered = isRendered; }
-
 void Sprite::Update()
 {
-	Draw(_body, _texture);
+	if (_isRendered) Graphics::DrawTexture(_body, _texture);
 }
 
 //think about moving this out, into Graphics, for further decoupling.
-void Sprite::Draw(Box dstRect, SDL_Texture* texture)
-{
-	/*if (HasAnimation)
-	{
-		int currentFrameIndex = (int)(timeInAnimationState * animationSpeed) % animFrames;
-		srcRect = { currentFrameIndex * animWidth, animState * animHeight, animWidth, animHeight };
-	}*/
-	if (!_isRendered) return;
-	SDL_RenderCopy(Graphics::_renderer, _texture, NULL, &SDLCommon::ConvertToSDLRect(dstRect));
-}
