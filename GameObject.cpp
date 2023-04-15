@@ -1,10 +1,11 @@
 #include "GameObject.h"
 #include "Sprite.h"
 
-GameObject::GameObject(Vector2D go_position)
+GameObject::GameObject(Vector2D go_position, int go_size)
 {
 	_position.x = go_position.x;
 	_position.y = go_position.y;
+	_size = go_size;
 }
 
 GameObject::~GameObject()

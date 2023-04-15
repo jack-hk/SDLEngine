@@ -1,9 +1,5 @@
-﻿  Component.cpp
-  Game.cpp
-  GameObject.cpp
-  Level.cpp
+﻿  main.cpp
   RectCollider.cpp
   Sprite.cpp
-  main.cpp
   Generating Code...
   Y2S1-SDL-GAME.vcxproj -> C:\Users\jackh\Projects\Unity\SDLEngine\x64\Debug\Y2S1-SDL-GAME.exe

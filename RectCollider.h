@@ -8,14 +8,13 @@
 class RectCollider : public Component
 {
 public:
-	RectCollider(GameObject* gameobject, bool isRenderedBounds = false, Vector4D renderedBoundsColor = Vector4D(255, 0, 0, 255) );
-	RectCollider(GameObject* gameobject, Vector2D newSize, bool isRenderedBounds = false, Vector4D renderedBoundsColor = Vector4D(255, 0, 0, 255));
+	RectCollider(GameObject* gameobject, Vector2D offset = Vector2D(0, 0), bool isRenderedBounds = false, Vector4D renderedBoundsColor = Vector4D(255, 0, 0, 255) );
+	RectCollider(GameObject* gameobject, Vector2D newSize, Vector2D offset = Vector2D(0, 0), bool isRenderedBounds = false, Vector4D renderedBoundsColor = Vector4D(255, 0, 0, 255));
 	
 	void Update() override;
 private:
 	Box _body;
 
-	Vector2D _colliderOffset = Vector2D(0, 0);
 	Vector2D _colliderSize = Vector2D(32, 32);
 	
 	Vector4D _renderedBoundsColor = Vector4D(255, 0, 0, 255);

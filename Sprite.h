@@ -13,7 +13,7 @@ class Sprite : public Component
 {
 public:
 	Sprite(GameObject* gameObject, SDL_Texture* texture);
-	Sprite(GameObject* gameObject, SDL_Texture* texture, Vector2D newSize);
+	Sprite(GameObject* gameObject, SDL_Texture* texture, Vector2D newSize, Vector2D offset = Vector2D(0, 0));
 
 	void Update() override;
 
@@ -21,8 +21,6 @@ public:
 private:
 	SDL_Texture* _texture = nullptr;
 	Box _body;
-
-	Vector2D _textureOffset = Vector2D(0, 0);
 
 	bool _isRendered = true;
 	bool _isAnimated = false;

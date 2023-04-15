@@ -33,9 +33,9 @@ void Game::Run()
 
 	// adding component example
 	SDL_Texture* placeholder = Graphics::LoadTexture("Assets/placeholder1.png");
-	GameObject go1(Vector2D(0, 0));
-	go1.AddComponent(new Sprite(&go1, placeholder));
-	go1.AddComponent(new RectCollider(&go1, true));
+	GameObject go1(Vector2D(0, 0), 64);
+	go1.AddComponent(new Sprite(&go1, placeholder, Vector2D(32,32)));
+	go1.AddComponent(new RectCollider(&go1, Vector2D(0,0), true));
 	Level level;
 	level.AddGameObject(&go1);
 	//

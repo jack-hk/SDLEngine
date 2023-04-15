@@ -15,7 +15,7 @@
 class GameObject
 {
 public:
-	GameObject(Vector2D go_position);
+	GameObject(Vector2D go_position, int go_size);
 
 	//Destroys attached components.
 	~GameObject();

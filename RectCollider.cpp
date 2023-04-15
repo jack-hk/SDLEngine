@@ -1,11 +1,11 @@
 #include "RectCollider.h"
 #include "GameObject.h"
 
-RectCollider::RectCollider(GameObject* gameObject, bool isRenderedBounds, Vector4D renderedBoundsColor) : Component(gameObject)
+RectCollider::RectCollider(GameObject* gameObject, Vector2D offset, bool isRenderedBounds, Vector4D renderedBoundsColor) : Component(gameObject)
 {
 	_body = Box{
-		(int)_gameObject->GetPosition().x + (int)_colliderOffset.x,
-		(int)_gameObject->GetPosition().y + (int)_colliderOffset.y,
+		(int)_gameObject->GetPosition().x + (int)offset.x,
+		(int)_gameObject->GetPosition().y + (int)offset.y,
 		(int)_gameObject->GetSize(),
 		(int)_gameObject->GetSize()
 	};
@@ -13,11 +13,11 @@ RectCollider::RectCollider(GameObject* gameObject, bool isRenderedBounds, Vector
 	_renderedBoundsColor = renderedBoundsColor;
 }
 
-RectCollider::RectCollider(GameObject* gameObject, Vector2D newSize, bool isRenderedBounds, Vector4D renderedBoundsColor) : Component(gameObject)
+RectCollider::RectCollider(GameObject* gameObject, Vector2D newSize, Vector2D offset, bool isRenderedBounds, Vector4D renderedBoundsColor) : Component(gameObject)
 {
 	_body = Box{
-		(int)_gameObject->GetPosition().x + (int)_colliderOffset.x,
-		(int)_gameObject->GetPosition().y + (int)_colliderOffset.y,
+		(int)_gameObject->GetPosition().x + (int)offset.x,
+		(int)_gameObject->GetPosition().y + (int)offset.y,
 		(int)newSize.x,
 		(int)newSize.y
 	};
