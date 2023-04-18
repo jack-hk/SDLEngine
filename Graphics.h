@@ -6,6 +6,7 @@
 
 #include "VectorMath.h"
 #include "Shape.h"
+#include "Common.h"
 
 //Deals with visual updates
 class Graphics
@@ -17,8 +18,8 @@ public:
 
 	static void CreateWindow(const char* window_title, int window_width, int window_height, Vector4D window_color);
 	static void DestroyWindow();
-	static void UpdateGraphics();
 	static SDL_Texture* LoadTexture(const char* filename);
 	static void DrawTexture(Box dstRect, SDL_Texture* texture);
 	static void DrawBox(Box dstRect, Vector4D color);
+	static void DrawCircle(Circle dstCircle, Vector4D color);
 };

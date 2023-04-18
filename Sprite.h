@@ -17,13 +17,11 @@ public:
 
 	inline void SetRendered(bool isRendered) { _isRendered = isRendered; }
 private:
+	bool _isRendered = true;
+	
 	SDL_Texture* _texture = nullptr;
 	Box _body = Box(0, 0, 0, 0);
 
 	Vector2D _spriteSize = Vector2D(0, 0);
 	Vector2D _spriteOffset = Vector2D(0, 0);
-
-	bool _isRendered = true;
-	bool _isAnimated = false;
-
 };

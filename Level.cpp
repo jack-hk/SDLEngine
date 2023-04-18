@@ -10,10 +10,10 @@ void Level::Update()
 	for (size_t i = 0; i < _gameObjects.size(); i++)
 	{
 		_gameObjects[i]->UpdateComponents();
-		if (_gameObjects[i]->GetComponent<RectCollider>() != nullptr)
+		if (_gameObjects[i]->GetComponent<BoxCollider>() != nullptr)
 		{
 			if (i + 1 < _gameObjects.size())
-			if (Collision::AABB(_gameObjects[i]->GetComponent<RectCollider>()->GetBodyBounds(), _gameObjects[i + 1]->GetComponent<RectCollider>()->GetBodyBounds())) std::cout << "Collision" << std::endl;
+			if (Collision::AABB(_gameObjects[i]->GetComponent<BoxCollider>()->GetBodyBounds(), _gameObjects[i + 1]->GetComponent<BoxCollider>()->GetBodyBounds())) std::cout << "Collision" << std::endl;
 		}
 	}
 }

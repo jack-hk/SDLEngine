@@ -15,7 +15,6 @@ public:
 	static inline std::vector<Level*> _levels;
 
 	static void Init();
-	static void Run();
 	static void Quit();
 
 	static void UpdateLevels();

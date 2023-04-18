@@ -7,8 +7,7 @@
 
 #include "VectorMath.h"
 #include "Shape.h"
-#include "RectCollider.h"
-#include "PhysicsBody.h"
+#include "BoxCollider.h"
 #include "Sprite.h"
 
 //Serves as a frame for components.
