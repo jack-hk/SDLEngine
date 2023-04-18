@@ -10,13 +10,13 @@ void Run()
 
 	// adding component example
 	SDL_Texture* placeholder = Graphics::LoadTexture("Assets/placeholder1.png");
-	GameObject go1(Vector2D(0, 0), 64);
-	go1.AddComponent(new Sprite(&go1, placeholder));
-	go1.AddComponent(new BoxCollider(&go1));
+	GameObject go1(Vector2D(50, 50), 20);
+	//go1.AddComponent(new Sprite(&go1, placeholder));
+	go1.AddComponent(new CircleCollider(&go1));
 
-	GameObject go2(Vector2D(55, 0), 64);
-	go2.AddComponent(new Sprite(&go2, placeholder));
-	go2.AddComponent(new BoxCollider(&go2));
+	GameObject go2(Vector2D(100, 50), 20);
+	//go2.AddComponent(new Sprite(&go2, placeholder));
+	go2.AddComponent(new CircleCollider(&go2));
 	Level level;
 	level.AddGameObject(&go1);
 	level.AddGameObject(&go2);
@@ -55,8 +55,9 @@ void Run()
 		//
 
 		SDL_RenderClear(Graphics::_renderer);
-		Graphics::DrawCircle(Circle{0,0,40}, Vector4D(255, 0, 0, SDL_ALPHA_OPAQUE));
-		//Game::UpdateLevels();
+		Graphics::DrawCircle(go1.GetComponent<CircleCollider>()->GetBodyBounds(), Vector4D(255, 0, 0, SDL_ALPHA_OPAQUE));
+		Graphics::DrawCircle(go2.GetComponent<CircleCollider>()->GetBodyBounds(), Vector4D(0, 0, 255, SDL_ALPHA_OPAQUE));
+		Game::UpdateLevels();
 		SDL_RenderPresent(Graphics::_renderer);
 	}
 }

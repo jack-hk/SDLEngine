@@ -59,50 +59,42 @@ void Graphics::DrawBox(Box dstRect, Vector4D color)
 	SDL_SetRenderDrawColor(Graphics::_renderer, Graphics::_windowColor.h, Graphics::_windowColor.i, Graphics::_windowColor.j, Graphics::_windowColor.k);
 }
 
+//midpoint circle algorithm
 void Graphics::DrawCircle(Circle dstCircle, Vector4D color)
 {
-	//midpoint circle algorithm
-	//used by Microsoft for Windows
-    
-    SDL_Point points[(dstCircle.r * 8 * 35 / 49) + (8 - 1) & -8];
-    int       drawCount = 0;
+	SDL_SetRenderDrawColor(Graphics::_renderer, color.h, color.i, color.j, color.k);
+	const int32_t diameter = (dstCircle.r * 2);
 
-    const int32_t diameter = (dstCircle.r * 2);
+	int32_t x = (dstCircle.r - 1);
+	int32_t y = 0;
+	int32_t tx = 1;
+	int32_t ty = 1;
+	int32_t error = (tx - diameter);
 
-    int32_t x = (dstCircle.r - 1);
-    int32_t y = 0;
-    int32_t tx = 1;
-    int32_t ty = 1;
-    int32_t error = (tx - diameter);
+	while (x >= y)
+	{
+		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x + x, dstCircle.y - y);
+		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x + x, dstCircle.y + y);
+		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x - x, dstCircle.y - y);
+		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x - x, dstCircle.y + y);
+		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x + y, dstCircle.y - x);
+		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x + y, dstCircle.y + x);
+		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x - y, dstCircle.y - x);
+		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x - y, dstCircle.y + x);
 
-    while (x >= y)
-    {
-        // Each of the following renders an octant of the circle
-        points[drawCount + 0] = { dstCircle.x + x, dstCircle.y - y };
-        points[drawCount + 1] = { dstCircle.x + x, dstCircle.y + y };
-        points[drawCount + 2] = { dstCircle.x - x, dstCircle.y - y };
-        points[drawCount + 3] = { dstCircle.x - x, dstCircle.y + y };
-        points[drawCount + 4] = { dstCircle.x + y, dstCircle.y - x };
-        points[drawCount + 5] = { dstCircle.x + y, dstCircle.y + x };
-        points[drawCount + 6] = { dstCircle.x - y, dstCircle.y - x };
-        points[drawCount + 7] = { dstCircle.x - y, dstCircle.y + x };
+		if (error <= 0)
+		{
+			++y;
+			error += ty;
+			ty += 2;
+		}
 
-        drawCount += 8;
-
-        if (error <= 0)
-        {
-            ++y;
-            error += ty;
-            ty += 2;
-        }
-
-        if (error > 0)
-        {
-            --x;
-            tx += 2;
-            error += (tx - diameter);
-        }
-    }
-
-    SDL_RenderDrawPoints(Graphics::_renderer, points, drawCount);
+		if (error > 0)
+		{
+			--x;
+			tx += 2;
+			error += (tx - diameter);
+		}
+	}
+	SDL_SetRenderDrawColor(Graphics::_renderer, Graphics::_windowColor.h, Graphics::_windowColor.i, Graphics::_windowColor.j, Graphics::_windowColor.k);
 }

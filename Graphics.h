@@ -6,7 +6,6 @@
 
 #include "VectorMath.h"
 #include "Shape.h"
-#include "Common.h"
 
 //Deals with visual updates
 class Graphics

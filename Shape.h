@@ -10,6 +10,6 @@ struct Box
 
 struct Circle
 {
-    const int x, y;
-    const int r;
+    int x, y;
+    int r;
 };

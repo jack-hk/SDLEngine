@@ -21,7 +21,6 @@
   <ItemGroup>
     <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collision.cpp" />
-    <ClCompile Include="Common.cpp" />
     <ClCompile Include="SDLCommon.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -40,7 +39,6 @@
   <ItemGroup>
     <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collision.h" />
-    <ClInclude Include="Common.h" />
     <ClInclude Include="SDLCommon.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Game.h" />

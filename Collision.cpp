@@ -13,7 +13,7 @@ bool Collision::AABB(const Box& rectA, const Box& rectB)
 	return false;
 }
 
-bool Collision::CircleCheck(float xa, float ya, float xc, float yc, float r)
+bool Collision::CircleToPointCheck(Circle a, Circle b)
 {
-	return ((xa - xc) * (xa - xc) + (ya - yc) * (ya - yc)) < r * r;
+	return ((a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y)) < a.r * a.r;
 }
