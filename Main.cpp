@@ -11,11 +11,11 @@ void Run()
 	// adding component example
 	SDL_Texture* placeholder = Graphics::LoadTexture("Assets/placeholder1.png");
 	GameObject go1(Vector2D(50, 50), 20);
-	//go1.AddComponent(new Sprite(&go1, placeholder));
+	go1.AddComponent(new Sprite(&go1, placeholder));
 	go1.AddComponent(new CircleCollider(&go1));
 
 	GameObject go2(Vector2D(100, 50), 20);
-	//go2.AddComponent(new Sprite(&go2, placeholder));
+	go2.AddComponent(new Sprite(&go2, placeholder));
 	go2.AddComponent(new CircleCollider(&go2));
 	Level level;
 	level.AddGameObject(&go1);

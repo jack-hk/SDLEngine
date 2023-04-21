@@ -19,3 +19,10 @@ SDL_Rect SDLCommon::ConvertToSDLRect(Box box)
 	rect.h = box.h;
 	return rect;
 }
+
+float SDLCommon::DistanceSquared(int ax, int ay, int bx, int by)
+{
+	int deltaX = bx - ax;
+	int deltaY = by - ay;
+	return deltaX * deltaX + deltaY * deltaY;
+}

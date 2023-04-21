@@ -9,8 +9,9 @@ void Level::Update()
 {
 	for (size_t i = 0; i < _gameObjects.size(); i++)
 	{
-		//checking collisions (move somewhere else later)
 		_gameObjects[i]->UpdateComponents();
+
+		//checking collisions (move somewhere else later)
 		if (_gameObjects[i]->GetComponent<BoxCollider>() != nullptr)
 		{
 			if (i + 1 < _gameObjects.size())
@@ -19,7 +20,7 @@ void Level::Update()
 		if (_gameObjects[i]->GetComponent<CircleCollider>() != nullptr)
 		{
 			if (i + 1 < _gameObjects.size())
-				if (Collision::CircleToPointCheck(_gameObjects[i]->GetComponent<CircleCollider>()->GetBodyBounds(), _gameObjects[i + 1]->GetComponent<CircleCollider>()->GetBodyBounds())) std::cout << "Collision" << std::endl;
+				if (Collision::CircleToCircle(_gameObjects[i]->GetComponent<CircleCollider>()->GetBodyBounds(), _gameObjects[i + 1]->GetComponent<CircleCollider>()->GetBodyBounds())) std::cout << "Collision" << std::endl;
 		}
 	}
 }

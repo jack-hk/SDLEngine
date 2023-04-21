@@ -3,7 +3,6 @@
 #include "Component.h"
 #include "Shape.h"
 #include "VectorMath.h"
-#include "Graphics.h"
 #include "GameObject.h"
 #include "SDLCommon.h"
 #include "Collision.h"

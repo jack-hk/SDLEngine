@@ -4,7 +4,6 @@
 #include "Shape.h"
 #include "VectorMath.h"
 #include "GameObject.h"
-#include "Graphics.h"
 #include "Collision.h"
 
 class CircleCollider : public Component
