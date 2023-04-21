@@ -1,2 +1,15 @@
-﻿  Level.cpp
+﻿  BoxCollider.cpp
+C:\Users\jackh\Projects\Unity\SDLEngine\BoxCollider.cpp(11,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\jackh\Projects\Unity\SDLEngine\BoxCollider.cpp(12,25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  CircleCollider.cpp
+  Collision.cpp
+  Component.cpp
+  Game.cpp
+  GameObject.cpp
+  Level.cpp
+  Sprite.cpp
+C:\Users\jackh\Projects\Unity\SDLEngine\Sprite.cpp(12,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\jackh\Projects\Unity\SDLEngine\Sprite.cpp(13,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+  Generating Code...
   Y2S1-SDL-GAME.vcxproj -> C:\Users\jackh\Projects\Unity\SDLEngine\x64\Debug\Y2S1-SDL-GAME.exe

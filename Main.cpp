@@ -71,8 +71,9 @@ int main(int argc, char* args[])
 	Game::_isRunning = true;
 
 	Run();
-	Input::Clean();
+
 	Graphics::DestroyWindow();
+	Input::Clean();
 	Game::Quit();
 
 	return 0;
