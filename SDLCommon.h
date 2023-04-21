@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <SDL_image.h>
 
+//destroy class
 class SDLCommon
 {
 public:

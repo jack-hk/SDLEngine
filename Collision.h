@@ -3,6 +3,7 @@
 #include "Shape.h"
 #include "SDLCommon.h"
 
+//Contains collision logic only
 class Collision
 {
 public:

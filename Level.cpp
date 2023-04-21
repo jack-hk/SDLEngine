@@ -15,13 +15,15 @@ void Level::Update()
 		if (_gameObjects[i]->GetComponent<BoxCollider>() != nullptr)
 		{
 			if (i + 1 < _gameObjects.size())
-			if (Collision::AABB(_gameObjects[i]->GetComponent<BoxCollider>()->GetBodyBounds(), _gameObjects[i + 1]->GetComponent<BoxCollider>()->GetBodyBounds())) std::cout << "Collision" << std::endl;
+			if (Collision::AABB(_gameObjects[i]->GetComponent<BoxCollider>()->GetBodyBounds(), _gameObjects[i + 1]->GetComponent<BoxCollider>()->GetBodyBounds()))
+				std::cout << "Collision" << std::endl;
+			//std::functional
 		}
 		if (_gameObjects[i]->GetComponent<CircleCollider>() != nullptr)
 		{
 			if (i + 1 < _gameObjects.size())
 				if (Collision::CircleToCircle(_gameObjects[i]->GetComponent<CircleCollider>()->GetBodyBounds(), _gameObjects[i + 1]->GetComponent<CircleCollider>()->GetBodyBounds())) std::cout << "Collision" << std::endl;
-		}
+		}//_gameObjects[i]->GetComponent<CircleCollider>()->OnCollisionEntered
 	}
 }
 

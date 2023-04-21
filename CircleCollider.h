@@ -3,6 +3,8 @@
 #include "Component.h"
 #include "Shape.h"
 #include "VectorMath.h"
+
+//Major dependinces
 #include "GameObject.h"
 #include "Collision.h"
 
