@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <algorithm>
 #include <iostream>
 
 // Contains collision logic only.
@@ -98,6 +99,8 @@ namespace ColSys
 			{
 				if (i + 1 < _colliders.size())
 				{
+					// basically this is always turning 'collided...' maybe cus it's comparing it's self twice in the AABB check?? idk
+					if (_colliders[i] != this) continue;
 					if (CollisionLogic::AABB(this->GetBoundingBody<Box>(_boundingBody), _colliders[i]->GetBoundingBody<Box>(_boundingBody)))
 					{
 						std::cout << "Collided" << std::endl;
