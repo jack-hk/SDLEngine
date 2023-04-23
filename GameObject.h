@@ -3,8 +3,10 @@
 #include <vector>
 #include <iostream>
 
+#include "Component.h"
 #include "Math.h"
 #include "Sprite.h"
+
 
 // Serves as a frame for components.
 class GameObject
