@@ -18,12 +18,11 @@ void Run()
 	GameObject go1(Vector2D(50, 100), 80);
 	go1.AddComponent(new Sprite(&go1, placeholder));
 
-
 	GameObject go2(Vector2D(10, 10), 80);
 	go2.AddComponent(new Sprite(&go2, placeholder));
 
-	ColSys::BoxCollider box1 = { (int)go1.GetPosition().x, (int)go1.GetPosition().y, go1.GetSize(), go1.GetSize() };
-	ColSys::BoxCollider box2 = { (int)go2.GetPosition().x, (int)go2.GetPosition().y, go2.GetSize(), go2.GetSize() };
+	ColSys::BoxCollider box1 = { go1.GetPosition().x, go1.GetPosition().y, 1, 1 };
+	ColSys::BoxCollider box2 = { go2.GetPosition().x, go2.GetPosition().y, 1, 1 };
 
 	Level level;
 	level.AddGameObject(&go1);
@@ -67,8 +66,8 @@ void Run()
 			go2.Transform(go2.GetPosition() + (Vector2D(1, 0)));
 			std::cout << go2.GetPosition().x << std::endl;
 		}
-		box1.UpdatePosition((int)go1.GetPosition().x, (int)go1.GetPosition().y);
-		box2.UpdatePosition((int)go2.GetPosition().x, (int)go2.GetPosition().y);
+		box1.UpdatePosition(go1.GetPosition().x, go1.GetPosition().y);
+		box2.UpdatePosition(go2.GetPosition().x, go2.GetPosition().y);
 		//
 
 		SDL_RenderClear(Graphics::_renderer);
@@ -77,7 +76,6 @@ void Run()
 	}
 	std::cout << "Game is shutting down..." << std::endl;
 }
-
 
 int main(int argc, char* args[])
 {

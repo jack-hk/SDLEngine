@@ -1,12 +1,12 @@
 #include "Math.h"
 
-Vector2D::Vector2D(float x, float y)
+Vector2D::Vector2D(int x, int y)
 {
 	this->x = x;
 	this->y = y;
 }
 
-Vector4D::Vector4D(float h, float i, float j, float k)
+Vector4D::Vector4D(int h, int i, int j, int k)
 {
 	this->h = h;
 	this->i = i;

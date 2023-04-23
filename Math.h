@@ -9,10 +9,10 @@ struct Circle
 
 struct Vector2D
 {
-	float x;
-	float y;
+	int x;
+	int y;
 
-	Vector2D(float x, float y);
+	Vector2D(int x, int y);
 
 	Vector2D operator+(const Vector2D& v2)
 	{
@@ -22,10 +22,10 @@ struct Vector2D
 
 struct Vector4D
 {
-	float h;
-	float i;
-	float j;
-	float k;
+	int h;
+	int i;
+	int j;
+	int k;
 
-	Vector4D(float h, float i, float j, float k);
+	Vector4D(int h, int i, int j, int k);
 };

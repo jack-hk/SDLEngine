@@ -40,10 +40,7 @@ namespace ColSys
 
 		virtual void Update() = 0;
 		virtual void UpdatePosition(int x, int y) = 0;
-		template <typename T> T GetBoundingBody(T x)
-		{
-			return x;
-		}
+		template <typename T> T GetBoundingBody(T x) { return x; }
 	};
 
 	class CollisionSystem
@@ -62,9 +59,9 @@ namespace ColSys
 	class CollisionLogic
 	{
 	public:
-		static bool AABB(Box boxA, Box boxB);
+		static bool AABB(Box a, Box b);
 		static bool CircleToPoint(Circle circleA, Point pointB);
-		static bool CircleToCircle(Circle circleA, Circle circleB);
+		static bool CircleToCircle(Circle a, Circle b);
 
 		inline static bool DistanceSquared(int ax, int ay, int bx, int by)
 		{
@@ -79,12 +76,12 @@ namespace ColSys
 	private:
 		Box _boundingBody = Box{ 0,0,32,32 };
 	public:
-		BoxCollider(int w, int h, int x = 0, int y = 0)
+		BoxCollider(int x, int y, int w, int h)
 		{
-			_boundingBody.w = w;
-			_boundingBody.h = h;
 			_boundingBody.x = x;
 			_boundingBody.y = y;
+			_boundingBody.w = w;
+			_boundingBody.h = h;
 		}
 
 		void UpdatePosition(int x, int y)
@@ -97,14 +94,11 @@ namespace ColSys
 		{
 			for (size_t i = 0; i < _colliders.size(); i++)
 			{
-				if (i + 1 < _colliders.size())
+				// basically this is always turning 'collided...' maybe cus it's comparing it's self twice in the AABB check?? idk
+				if (_colliders[i] == this) continue;
+				if (CollisionLogic::AABB(_boundingBody, _colliders[i]->GetBoundingBody<Box>(_boundingBody)))
 				{
-					// basically this is always turning 'collided...' maybe cus it's comparing it's self twice in the AABB check?? idk
-					if (_colliders[i] != this) continue;
-					if (CollisionLogic::AABB(this->GetBoundingBody<Box>(_boundingBody), _colliders[i]->GetBoundingBody<Box>(_boundingBody)))
-					{
-						std::cout << "Collided" << std::endl;
-					}
+					std::cout << "Collided:  " << _colliders[i] << std::endl;
 				}
 			}
 		}
@@ -115,7 +109,7 @@ namespace ColSys
 	private:
 		Circle _boundingBody = Circle{ 0,0,32 };
 	public:
-		CircleCollider(int r, int x = 0, int y = 0)
+		CircleCollider( int x, int y, int r)
 		{
 			_boundingBody.x = x;
 			_boundingBody.y = y;
@@ -132,12 +126,10 @@ namespace ColSys
 		{
 			for (size_t i = 0; i < _colliders.size(); i++)
 			{
-				if (i + 1 < _colliders.size())
+				if (_colliders[i] == this) continue;
+				if (CollisionLogic::CircleToCircle(_boundingBody, _colliders[i]->GetBoundingBody<Circle>(_boundingBody)))
 				{
-					if (CollisionLogic::CircleToCircle(_colliders[i]->GetBoundingBody<Circle>(_boundingBody), _colliders[i + 1]->GetBoundingBody<Circle>(_boundingBody)))
-					{
-						std::cout << "Collided" << std::endl;
-					}
+					std::cout << "Collided:  " << _colliders[i] << std::endl;
 				}
 			}
 		}
