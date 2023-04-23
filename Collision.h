@@ -39,7 +39,10 @@ namespace ColSys
 
 		virtual void Update() = 0;
 		virtual void UpdatePosition(int x, int y) = 0;
-		template <typename T> T GetBoundingBody();
+		template <typename T> T GetBoundingBody(T x)
+		{
+			return x;
+		}
 	};
 
 	class CollisionSystem
@@ -72,6 +75,8 @@ namespace ColSys
 
 	class BoxCollider : Collider
 	{
+	private:
+		Box _boundingBody = Box{ 0,0,32,32 };
 	public:
 		BoxCollider(int w, int h, int x = 0, int y = 0)
 		{
@@ -87,31 +92,25 @@ namespace ColSys
 			_boundingBody.y = y;
 		}
 
-		void Update()
+		void Update() override
 		{
 			for (size_t i = 0; i < _colliders.size(); i++)
 			{
 				if (i + 1 < _colliders.size())
 				{
-					if (CollisionLogic::AABB(_colliders[i]->GetBoundingBody<Box>(), _colliders[i + 1]->GetBoundingBody<Box>()))
+					if (CollisionLogic::AABB(this->GetBoundingBody<Box>(_boundingBody), _colliders[i]->GetBoundingBody<Box>(_boundingBody)))
 					{
 						std::cout << "Collided" << std::endl;
 					}
 				}
 			}
 		}
-
-		template <typename T> T GetBoundingBody()
-		{
-			return _boundingBody;
-		}
-
-	private:
-		Box _boundingBody = Box{ 0,0,32,32 };
 	};
 
 	class CircleCollider : Collider
 	{
+	private:
+		Circle _boundingBody = Circle{ 0,0,32 };
 	public:
 		CircleCollider(int r, int x = 0, int y = 0)
 		{
@@ -126,27 +125,19 @@ namespace ColSys
 			_boundingBody.y = y;
 		}
 
-		void Update()
+		void Update() override
 		{
 			for (size_t i = 0; i < _colliders.size(); i++)
 			{
 				if (i + 1 < _colliders.size())
 				{
-					if (CollisionLogic::CircleToCircle(_colliders[i]->GetBoundingBody<Circle>(), _colliders[i + 1]->GetBoundingBody<Circle>()))
+					if (CollisionLogic::CircleToCircle(_colliders[i]->GetBoundingBody<Circle>(_boundingBody), _colliders[i + 1]->GetBoundingBody<Circle>(_boundingBody)))
 					{
 						std::cout << "Collided" << std::endl;
 					}
 				}
 			}
 		}
-
-		template <typename T> T GetBoundingBody()
-		{
-			return _boundingBody;
-		}
-
-	private:
-		Circle _boundingBody = Circle{ 0,0,32 };
 	};
 
 }

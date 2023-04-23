@@ -22,8 +22,8 @@ void Run()
 	GameObject go2(Vector2D(10, 10), 80);
 	go2.AddComponent(new Sprite(&go2, placeholder));
 
-	//ColSys::BoxCollider box1 = { (int)go1.GetPosition().x, (int)go1.GetPosition().y, go1.GetSize(), go1.GetSize() };
-	//ColSys::BoxCollider box2 = { (int)go2.GetPosition().x, (int)go2.GetPosition().y, go2.GetSize(), go2.GetSize() };
+	ColSys::BoxCollider box1 = { (int)go1.GetPosition().x, (int)go1.GetPosition().y, go1.GetSize(), go1.GetSize() };
+	ColSys::BoxCollider box2 = { (int)go2.GetPosition().x, (int)go2.GetPosition().y, go2.GetSize(), go2.GetSize() };
 
 	Level level;
 	level.AddGameObject(&go1);
@@ -47,8 +47,28 @@ void Run()
 		}
 
 		//
-		//box1.UpdatePosition((int)go1.GetPosition().x, (int)go1.GetPosition().y);
-		//box2.UpdatePosition((int)go2.GetPosition().x, (int)go2.GetPosition().y);
+		if (Input::GetKey(SDL_SCANCODE_A))
+		{
+			go1.Transform(go1.GetPosition() + (Vector2D(-1, 0)));
+			std::cout << go1.GetPosition().x << std::endl;
+		}
+		if (Input::GetKey(SDL_SCANCODE_D))
+		{
+			go1.Transform(go1.GetPosition() + (Vector2D(1, 0)));
+			std::cout << go1.GetPosition().x << std::endl;
+		}
+		if (Input::GetKey(SDL_SCANCODE_Q))
+		{
+			go2.Transform(go2.GetPosition() + (Vector2D(-1, 0)));
+			std::cout << go2.GetPosition().x << std::endl;
+		}
+		if (Input::GetKey(SDL_SCANCODE_E))
+		{
+			go2.Transform(go2.GetPosition() + (Vector2D(1, 0)));
+			std::cout << go2.GetPosition().x << std::endl;
+		}
+		box1.UpdatePosition((int)go1.GetPosition().x, (int)go1.GetPosition().y);
+		box2.UpdatePosition((int)go2.GetPosition().x, (int)go2.GetPosition().y);
 		//
 
 		SDL_RenderClear(Graphics::_renderer);
