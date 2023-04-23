@@ -2,7 +2,7 @@
 
 Sprite::Sprite(GameObject* gameObject, SDL_Texture* texture) : Component(gameObject)
 {
-	_body = Box{
+	_body = SDL_Rect{
 			(int)_gameObject->GetPosition().x,
 			(int)_gameObject->GetPosition().y,
 			(int)_gameObject->GetSize(),
@@ -15,7 +15,7 @@ Sprite::Sprite(GameObject* gameObject, SDL_Texture* texture) : Component(gameObj
 
 Sprite::Sprite(GameObject* gameObject, SDL_Texture* texture, Vector2D newSize, Vector2D offset) : Component(gameObject)
 {
-	_body = Box{
+	_body = SDL_Rect{
 			(int)_gameObject->GetPosition().x + (int)offset.x,
 			(int)_gameObject->GetPosition().y + (int)offset.y,
 			(int)newSize.x,
@@ -28,7 +28,7 @@ Sprite::Sprite(GameObject* gameObject, SDL_Texture* texture, Vector2D newSize, V
 
 void Sprite::Update()
 {
-	_body = Box{
+	_body = SDL_Rect{
 			(int)_gameObject->GetPosition().x + (int)_spriteOffset.x,
 			(int)_gameObject->GetPosition().y + (int)_spriteOffset.y,
 			(int)_spriteSize.x,

@@ -1,4 +1,4 @@
-#include "VectorMath.h"
+#include "Math.h"
 
 Vector2D::Vector2D(float x, float y)
 {

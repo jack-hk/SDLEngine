@@ -1,5 +1,4 @@
 #include "GameObject.h"
-#include "Sprite.h"
 
 GameObject::GameObject(Vector2D go_position, int go_size)
 {
@@ -16,12 +15,6 @@ GameObject::~GameObject()
 	}
 }
 
-Vector2D GameObject::GetPosition() { return _position; }
-
-int GameObject::GetSize() { return _size; }
-
-void GameObject::Transform(Vector2D newPosition) { _position = newPosition; }
-
 void GameObject::AddComponent(Component* componentToAdd)
 {
 	_components.push_back(componentToAdd);
@@ -34,4 +27,3 @@ void GameObject::UpdateComponents()
 		component->Update();
 	}
 }
-

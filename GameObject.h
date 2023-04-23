@@ -1,28 +1,21 @@
 #pragma once
 #include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
-#include <iostream>
 #include <vector>
+#include <iostream>
 
-#include "VectorMath.h"
-#include "Shape.h"
-#include "BoxCollider.h"
-#include "CircleCollider.h"
+#include "Math.h"
 #include "Sprite.h"
 
-//Serves as a frame for components.
+// Serves as a frame for components.
 class GameObject
 {
 public:
 	GameObject(Vector2D go_position, int go_size);
-
-	//Destroys attached components.
 	~GameObject();
 
-	Vector2D GetPosition();
-	int GetSize();
-	void Transform(Vector2D newPosition);
+	inline Vector2D GetPosition() { return _position; }
+	inline int GetSize() { return _size; }
+	inline void Transform(Vector2D newPosition) { _position = newPosition; }
 	
 	void AddComponent(Component* componentToAdd);
 	void UpdateComponents();

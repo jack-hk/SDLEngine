@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 
 class GameObject;
 class Component
@@ -9,7 +8,7 @@ public:
 
 	Component(GameObject* gameObject);
 
-	virtual void Update() = 0; //abstract 
+	virtual void Update() = 0;
 
 private:
 	bool _isEnabled = true;

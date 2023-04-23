@@ -1,11 +1,9 @@
 #pragma once
 
 #include "Component.h"
-#include "Shape.h"
-#include "VectorMath.h"
-#include "Graphics.h"
 #include "GameObject.h"
-#include "SDLCommon.h"
+#include "Graphics.h"
+#include "Math.h"
 
 class Sprite : public Component
 {
@@ -20,7 +18,7 @@ private:
 	bool _isRendered = true;
 	
 	SDL_Texture* _texture = nullptr;
-	Box _body = Box(0, 0, 0, 0);
+	SDL_Rect _body = SDL_Rect(0, 0, 0, 0);
 
 	Vector2D _spriteSize = Vector2D(0, 0);
 	Vector2D _spriteOffset = Vector2D(0, 0);

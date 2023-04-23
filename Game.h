@@ -2,11 +2,9 @@
 #include <vector>
 
 #include "Graphics.h"
-#include "Input.h"
 
-//Deals with gameloop and common game functions
 class Level;
-class Game
+class Game // Deals with gameloop and common game functions.
 {
 public:
 	static inline Graphics _graphics;

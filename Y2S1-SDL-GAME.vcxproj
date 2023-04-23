@@ -19,9 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CircleCollider.cpp" />
     <ClCompile Include="Collision.cpp" />
-    <ClCompile Include="SDLCommon.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -29,27 +27,22 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="VectorMath.cpp" />
+    <ClCompile Include="Math.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.text" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CircleCollider.h" />
     <ClInclude Include="Collision.h" />
-    <ClInclude Include="SDLCommon.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Level.h" />
-    <ClInclude Include="BoxCollider.h" />
-    <ClInclude Include="Shape.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="VectorMath.h" />
+    <ClInclude Include="Math.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

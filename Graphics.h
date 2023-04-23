@@ -1,13 +1,11 @@
 #pragma once
 #include <SDL.h>
 #include <SDL_image.h>
-#include <SDL_ttf.h>
 #include <iostream>
 
-#include "VectorMath.h"
-#include "Shape.h"
+#include "Math.h"
 
-//Deals with visual updates
+// Deals with visual updates.
 class Graphics
 {
 public:
@@ -18,7 +16,7 @@ public:
 	static void CreateWindow(const char* window_title, int window_width, int window_height, Vector4D window_color);
 	static void DestroyWindow();
 	static SDL_Texture* LoadTexture(const char* filename);
-	static void DrawTexture(Box dstRect, SDL_Texture* texture);
-	static void DrawBox(Box dstRect, Vector4D color);
+	static void DrawTexture(SDL_Rect dstRect, SDL_Texture* texture);
+	static void DrawBox(SDL_Rect dstRect, Vector4D color);
 	static void DrawCircle(Circle dstCircle, Vector4D color);
 };
