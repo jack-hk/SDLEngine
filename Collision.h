@@ -27,32 +27,69 @@ namespace ColSys
 		int y;
 	};
 
-	class Collider;
-	static std::vector<Collider*> _colliders;
+	class BoxCollider;
+	class CircleCollider;
+	static std::vector<BoxCollider*> _boxColliders;
+	static std::vector<CircleCollider*> _circleColliders;
+
+	enum ColliderType { BOX, CIRCLE };
 
 	class Collider
 	{
+	protected:
+		ColliderType _type = BOX;
 	public:
-		Collider()
-		{
-			_colliders.push_back(this);
-		}
-
-		virtual void Update() = 0;
+		virtual ColliderType GetType() = 0;
 		virtual void UpdatePosition(int x, int y) = 0;
-		template <typename T> T GetBoundingBody(T x) { return x; }
 	};
 
-	class CollisionSystem
-	{
-	public:
 
-		static void UpdateSystem()
+	class BoxCollider : Collider
+	{
+	private:
+		Box _boundingBody = Box{ 0,0,32,32 };
+	public:
+		BoxCollider(int x, int y, int w, int h) : Collider()
 		{
-			for (auto collider : _colliders)
-			{
-				collider->Update();
-			}
+			_boundingBody.x = x;
+			_boundingBody.y = y;
+			_boundingBody.w = w;
+			_boundingBody.h = h;
+			_type = BOX;
+			_boxColliders.push_back(this);
+		}
+
+		inline ColliderType GetType() { return BOX; }
+		inline Box GetBody() { return _boundingBody; }
+
+		void UpdatePosition(int x, int y) override
+		{
+			_boundingBody.x = x;
+			_boundingBody.y = y;
+		}
+	};
+
+	class CircleCollider : Collider
+	{
+	private:
+		Circle _boundingBody = Circle{ 0,0,32 };
+	public:
+		CircleCollider(int x, int y, int r) : Collider()
+		{
+			_boundingBody.x = x;
+			_boundingBody.y = y;
+			_boundingBody.r = r;
+			_type = CIRCLE;
+			_circleColliders.push_back(this);
+		}
+
+		inline ColliderType GetType() { return CIRCLE; }
+		inline Circle GetBody() { return _boundingBody; }
+
+		void UpdatePosition(int x, int y) override
+		{
+			_boundingBody.x = x;
+			_boundingBody.y = y;
 		}
 	};
 
@@ -71,68 +108,38 @@ namespace ColSys
 		}
 	};
 
-	class BoxCollider : Collider
+	class CollisionSystem
 	{
-	private:
-		Box _boundingBody = Box{ 0,0,32,32 };
 	public:
-		BoxCollider(int x, int y, int w, int h)
+		static void Update()
 		{
-			_boundingBody.x = x;
-			_boundingBody.y = y;
-			_boundingBody.w = w;
-			_boundingBody.h = h;
-		}
-
-		void UpdatePosition(int x, int y)
-		{
-			_boundingBody.x = x;
-			_boundingBody.y = y;
-		}
-
-		void Update() override
-		{
-			for (size_t i = 0; i < _colliders.size(); i++)
+			// 2D For Loop which does not repeat.
+			for (size_t y = 0; y < _boxColliders.size(); y++)
 			{
-				// basically this is always turning 'collided...' maybe cus it's comparing it's self twice in the AABB check?? idk
-				if (_colliders[i] == this) continue;
-				if (CollisionLogic::AABB(_boundingBody, _colliders[i]->GetBoundingBody<Box>(_boundingBody)))
+				for (size_t x = y; x < _boxColliders.size(); x++)
 				{
-					std::cout << "Collided:  " << _colliders[i] << std::endl;
+					if (x == y) continue;
+					if (CollisionLogic::AABB(_boxColliders[x]->GetBody(), _boxColliders[y]->GetBody())) 
+					{
+						std::cout << "Collided!" << std::endl;
+					};
+				}
+
+			}
+			for (size_t y = 0; y < _circleColliders.size(); y++)
+			{
+				for (size_t x = y; x < _circleColliders.size(); x++)
+				{
+					if (x == y) continue;
+					if (CollisionLogic::CircleToCircle(_circleColliders[x]->GetBody(), _circleColliders[y]->GetBody()))
+					{
+						std::cout << "Collided!" << std::endl;
+					};
 				}
 			}
 		}
 	};
 
-	class CircleCollider : Collider
-	{
-	private:
-		Circle _boundingBody = Circle{ 0,0,32 };
-	public:
-		CircleCollider( int x, int y, int r)
-		{
-			_boundingBody.x = x;
-			_boundingBody.y = y;
-			_boundingBody.r = r;
-		}
 
-		void UpdatePosition(int x, int y)
-		{
-			_boundingBody.x = x;
-			_boundingBody.y = y;
-		}
-
-		void Update() override
-		{
-			for (size_t i = 0; i < _colliders.size(); i++)
-			{
-				if (_colliders[i] == this) continue;
-				if (CollisionLogic::CircleToCircle(_boundingBody, _colliders[i]->GetBoundingBody<Circle>(_boundingBody)))
-				{
-					std::cout << "Collided:  " << _colliders[i] << std::endl;
-				}
-			}
-		}
-	};
 
 }

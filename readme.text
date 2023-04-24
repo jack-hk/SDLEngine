@@ -1,3 +1,19 @@
+		// Notes.
+		// 
+		// 1. Using Emun 'collider' type to replace Template function.
+		// 
+		// 2. Switch this to a global 2D for loop that checks if colliders are interacting, instead of having update code in each collider.
+		/*int size = 4;
+		for (size_t y = 0; y < size; y++)
+		{
+			for (size_t x = y; x < size; x++)
+			{
+				if (x == y) continue;
+			}
+		}*/
+
+
+
 //	SDL_Texture* battex = Graphics::LoadTexture("Assets/bat.png");
 //	GameObject go2(tex, Vector2D(0, 0), 128, 128);
 //					act.Move(Vector2D(0, -500));

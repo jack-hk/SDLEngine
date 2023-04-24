@@ -24,7 +24,7 @@ namespace ColSys
         int totalRadiusSquared = a.r + b.r;
         totalRadiusSquared = totalRadiusSquared * totalRadiusSquared;
         
-        if (DistanceSquared(a.x, a.y, b.x, b.y) < (totalRadiusSquared))
+        if (DistanceSquared(a.x, a.y, b.x, b.y) < (totalRadiusSquared / 2))
         {
             return true;
         }

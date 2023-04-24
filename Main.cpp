@@ -18,11 +18,11 @@ void Run()
 	GameObject go1(Vector2D(50, 100), 80);
 	go1.AddComponent(new Sprite(&go1, placeholder));
 
-	GameObject go2(Vector2D(10, 10), 80);
+	GameObject go2(Vector2D(10, 30), 80);
 	go2.AddComponent(new Sprite(&go2, placeholder));
 
-	ColSys::BoxCollider box1 = { go1.GetPosition().x, go1.GetPosition().y, 1, 1 };
-	ColSys::BoxCollider box2 = { go2.GetPosition().x, go2.GetPosition().y, 1, 1 };
+	ColSys::CircleCollider box1 = { go1.GetPosition().x, go1.GetPosition().y, go1.GetSize() };
+	ColSys::CircleCollider box2 = { go2.GetPosition().x, go2.GetPosition().y, go2.GetSize() };
 
 	Level level;
 	level.AddGameObject(&go1);
@@ -33,7 +33,7 @@ void Run()
 	{
 		Input::Update();
 		//
-		ColSys::CollisionSystem::UpdateSystem();
+		ColSys::CollisionSystem::Update();
 		//
 		while (SDL_PollEvent(&_sdlEvent))
 		{
