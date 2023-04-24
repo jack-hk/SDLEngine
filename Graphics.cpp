@@ -59,7 +59,7 @@ void Graphics::DrawBox(SDL_Rect dstRect, Vector4D color)
 void Graphics::DrawCircle(Circle dstCircle, Vector4D color)
 {
 	SDL_SetRenderDrawColor(Graphics::_renderer, color.h, color.i, color.j, color.k);
-	
+
 	// Midpoint circle algorithm.
 	const int32_t diameter = (dstCircle.r * 2);
 
@@ -68,7 +68,6 @@ void Graphics::DrawCircle(Circle dstCircle, Vector4D color)
 	int32_t tx = 1;
 	int32_t ty = 1;
 	int32_t error = (tx - diameter);
-
 	while (x >= y)
 	{
 		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x + x, dstCircle.y - y);

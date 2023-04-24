@@ -124,7 +124,6 @@ namespace ColSys
 						std::cout << "Collided!" << std::endl;
 					};
 				}
-
 			}
 			for (size_t y = 0; y < _circleColliders.size(); y++)
 			{
