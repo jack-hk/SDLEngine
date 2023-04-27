@@ -3,7 +3,7 @@
 void Graphics::CreateWindow(const char* window_title, int window_width, int window_height, Vector4D window_color)
 {
 	_windowColor = window_color;
-	
+
 	_window = SDL_CreateWindow(window_title, SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, window_width, window_height, SDL_WINDOW_SHOWN);
 	if (_window == nullptr)
 	{
@@ -59,25 +59,29 @@ void Graphics::DrawBox(SDL_Rect dstRect, Vector4D color)
 void Graphics::DrawCircle(Circle dstCircle, Vector4D color)
 {
 	SDL_SetRenderDrawColor(Graphics::_renderer, color.h, color.i, color.j, color.k);
-
+	int circleR = dstCircle.r / 2;
+	
 	// Midpoint circle algorithm.
-	const int32_t diameter = (dstCircle.r * 2);
+	const int32_t diameter = (circleR * 2);
 
-	int32_t x = (dstCircle.r - 1);
+	int circleX = dstCircle.x + (dstCircle.r / 2);
+	int circleY = dstCircle.y + (dstCircle.r / 2);
+
+	int32_t x = (circleR - 1);
 	int32_t y = 0;
 	int32_t tx = 1;
 	int32_t ty = 1;
 	int32_t error = (tx - diameter);
 	while (x >= y)
 	{
-		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x + x, dstCircle.y - y);
-		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x + x, dstCircle.y + y);
-		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x - x, dstCircle.y - y);
-		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x - x, dstCircle.y + y);
-		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x + y, dstCircle.y - x);
-		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x + y, dstCircle.y + x);
-		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x - y, dstCircle.y - x);
-		SDL_RenderDrawPoint(Graphics::_renderer, dstCircle.x - y, dstCircle.y + x);
+		SDL_RenderDrawPoint(Graphics::_renderer, circleX + x, circleY - y);
+		SDL_RenderDrawPoint(Graphics::_renderer, circleX + x, circleY + y);
+		SDL_RenderDrawPoint(Graphics::_renderer, circleX - x, circleY - y);
+		SDL_RenderDrawPoint(Graphics::_renderer, circleX - x, circleY + y);
+		SDL_RenderDrawPoint(Graphics::_renderer, circleX + y, circleY - x);
+		SDL_RenderDrawPoint(Graphics::_renderer, circleX + y, circleY + x);
+		SDL_RenderDrawPoint(Graphics::_renderer, circleX - y, circleY - x);
+		SDL_RenderDrawPoint(Graphics::_renderer, circleX - y, circleY + x);
 
 		if (error <= 0)
 		{
