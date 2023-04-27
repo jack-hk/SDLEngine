@@ -69,22 +69,18 @@ void Run()
 		if (Input::GetKey(SDL_SCANCODE_A))
 		{
 			go1.Transform(go1.GetPosition() + (Vector2D(-1, 0)));
-			std::cout << go1.GetPosition().x << std::endl;
 		}
 		if (Input::GetKey(SDL_SCANCODE_D))
 		{
 			go1.Transform(go1.GetPosition() + (Vector2D(1, 0)));
-			std::cout << go1.GetPosition().x << std::endl;
 		}
 		if (Input::GetKey(SDL_SCANCODE_Q))
 		{
 			go3.Transform(go3.GetPosition() + (Vector2D(-1, 0)));
-			std::cout << go3.GetPosition().x << std::endl;
 		}
 		if (Input::GetKey(SDL_SCANCODE_E))
 		{
 			go3.Transform(go3.GetPosition() + (Vector2D(1, 0)));
-			std::cout << go3.GetPosition().x << std::endl;
 		}
 		box1.UpdatePosition(go1.GetPosition().x, go1.GetPosition().y);
 		box2.UpdatePosition(go2.GetPosition().x, go2.GetPosition().y);
